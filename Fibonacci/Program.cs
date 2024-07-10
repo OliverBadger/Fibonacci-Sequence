@@ -4,12 +4,12 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        int iterations = 100;
+        byte iterations = 100;
 
-        int a = 1;
-        int b = 0;
+        ulong a = 1;
+        ulong b = 0;
         calculation cal = new calculation();
-        int nthTerm = cal.fibonacci(a, b, iterations);
+        ulong nthTerm = cal.fibonacci(a, b, iterations);
         Console.WriteLine($"The {iterations} number in the sequence is {nthTerm}");
     }
 }

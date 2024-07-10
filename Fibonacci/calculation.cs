@@ -9,13 +9,13 @@ namespace Fibonacci
     internal class calculation
     {
         private byte count;
-        public int fibonacci(int a, int b, int totalCount)
+        public ulong fibonacci(ulong a, ulong b, uint totalCount)
         {
             // c = Fn
             // a = F(n-1)
             // b = F(n-2)
 
-            int c = a + b;
+            ulong c = a + b;
             if (count == totalCount)
             {
                 Console.WriteLine($"For itteration {count}, the result is {c}. This means the calculation is {a} + {b} = {c}");
