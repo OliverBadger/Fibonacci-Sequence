@@ -22,16 +22,32 @@ internal class Program
         
         // This is my method
 
-
+        
 
         // This is Trevors Method
 
         uint n = 100;
-        n--;
-        uint sequence = n + 1;
-        calculation cal = new calculation();
+        uint sequence = n;
+        n--; // The first number in the sequence is 0
         cache = new BigInteger[sequence];
         Console.WriteLine($"The answer for {sequence + 1} is {fibonacci(n)}");
+
+        for(int i = 0; i< cache.Length; i++)
+        {
+            if (cache[i] == 0 && i < 1)
+            {
+                Console.WriteLine($"Sequence {(i + 1)} 0");
+            }
+            else if (cache[i] == 0 && i > 0)
+            {
+                Console.WriteLine($"Sequence {(i + 1)} 1");
+            }
+            else
+            {
+                // '{cache[i]:N0}' Adds a comma to make the number more readable
+                Console.WriteLine($"Sequence {(i + 1)} {cache[i]:N0}");
+            }
+        }
 
         // This is Trevors Method
     }
@@ -48,13 +64,21 @@ internal class Program
         //{
         //    return fibonacci(n - 2) + fibonacci(n - 1);
         //}
+
+        // Check if the value of the (n-1)th Fibonacci number is already cached (computed previously)
         if (cache[n - 1] != 0)
         {
+            // If it is cached, return the cached value
             return cache[n - 1];
         }
 
+        // Compute the (n-2)th and (n-1)th Fibonacci numbers recursively and sum them up
         BigInteger tempStore = fibonacci(n-2) + fibonacci(n-1);
+
+        // Store the computed Fibonacci number in the cache for future use
         cache[n-1] = tempStore;
+
+        // Return the computed Fibonacci number
         return tempStore;
     }
 
